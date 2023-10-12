@@ -5,7 +5,7 @@ import static java.util.Arrays.sort;
 
 public class Main {
     static Boolean[] check = new Boolean[8];
-    static int[] order = new int[8];
+    static int[] arr = new int[8];
     static int[] a=new int[8];
     static int n, ans;
 
@@ -13,7 +13,7 @@ public class Main {
         if (idx >= n) {
             int tans=0;
             for(int i=1;i<n;i++){
-                tans += Math.abs(a[order[i]]-a[order[i-1]]);
+                tans += Math.abs(a[arr[i]]-a[arr[i-1]]);
             }
             ans=Math.max(ans,tans);
             return;
@@ -21,7 +21,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             if (check[i] == false) {
                 check[i] = true;
-                order[idx]=i;
+                arr[idx]=i;
                 dfs(idx + 1);
                 check[i] = false;
             }
@@ -36,7 +36,7 @@ public class Main {
         ans = 0;
         for (int i = 0; i < n; i++) {
             check[i] = false;
-            order[i] = 0;
+            arr[i] = 0;
         }
         String[] inputs=br.readLine().split(" ");
         for(int i=0;i<n;i++){
