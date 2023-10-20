@@ -1,5 +1,5 @@
 // DFS, 백트래킹, 브루트포스, 비트마스킹
-
+// N값 입력 => 팀 나누기 => 능력치 더하기 => 최소값 구하기
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -33,21 +33,24 @@ public class Main {
 
 
     }
-    public static void dfs(int depth, int a) {
+
+    // dfs로 팀 나누기
+    public static void dfs(int idx, int a) {
 
         if(depth == N/2) {
-            diff();
+            score();
             return;
         }
 
         for(int i = a ; i < N ; i++) {
             check[i]=true;
-            dfs(depth+1, i+1);
+            dfs(idx+1, i+1);
             check[i]=false;
         }
     }
 
-    public static void diff() {
+    // start팀, link팀 나눠서 능력치 더하기
+    public static void score() {
         int start = 0;
         int link = 0;
         for(int i = 0 ; i < N-1 ; i++) {
