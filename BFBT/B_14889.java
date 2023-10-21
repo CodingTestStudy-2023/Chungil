@@ -37,7 +37,7 @@ public class Main {
     // dfs로 팀 나누기
     public static void dfs(int idx, int a) {
 
-        if(depth == N/2) {
+        if(idx == N/2) {
             score();
             return;
         }
